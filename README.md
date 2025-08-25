@@ -24,3 +24,12 @@ scte-ml/
 ├── requirements.txt       # bibliotecas necessárias
 ├── .gitignore             # ficheiros/pastas a ignorar no Git
 └── README.md              # descrição e instruções do projeto
+## 🚀 Instalação e Ambiente
+
+Para recriar o ambiente do projeto, siga os passos abaixo:
+
+1. **Criar ambiente virtual (Python 3.11 recomendado)**
+   ```bash
+   python3.11 -m venv .venv
+   source .venv/bin/activate   # Mac/Linux
+   .venv\Scripts\activate      # Windows
