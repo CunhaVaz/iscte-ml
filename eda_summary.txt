@@ -1,0 +1,29 @@
+=== RESUMO EDA ===
+Dataset: /Users/franciscovaz/Desktop/iscte-ml-projeto/data/raw/dataset_biagio.xlsx
+Linhas × Colunas: 500 × 8
+Colunas: Ano, Mês, Cliente, Vendas, Produto, Canal, Margem_%, Margem_Valor
+
+--- Omissos ---
+Ano             0
+Mês             0
+Cliente         0
+Vendas          4
+Produto         0
+Canal           0
+Margem_%        4
+Margem_Valor    0
+
+Duplicados: 0
+
+--- Outliers (> média + 3×σ) ---
+Ano             0
+Mês             0
+Vendas          2
+Margem_%        1
+Margem_Valor    0
+
+--- Erros ortográficos ---
+Cliente
+Mercado Frescco    1
+Kéro               1
+Shopritee          1
