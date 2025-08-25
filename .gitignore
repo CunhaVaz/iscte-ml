@@ -1,8 +1,36 @@
+# Ambiente virtual
 .venv/
+venv/
+
+# Cache do Python
 __pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pdb
+
+# Ficheiros temporários de testes
+*.log
+*.tmp
+*.bak
+*.swp
+
+# VS Code
 .vscode/
+.history/
+
+# macOS
 .DS_Store
+*/.DS_Store
+
+# Dados locais (não versionar)
 data/raw/
 data/processed/
 reports/
+
+# Notebooks de checkpoint do Jupyter
+.ipynb_checkpoints/
+
+# Histórico do R (se usares RStudio por acaso)
 .Rhistory
+.RData
