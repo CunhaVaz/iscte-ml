@@ -47,14 +47,7 @@ Aplicar Machine Learning a um dataset sintético (≤500 linhas × 10 colunas) p
 - Top 5 clientes e produtos  
 - Importância das variáveis  
 - Gráficos comparativos de métricas  
-
-Exemplo:
-
-![RMSE Treino/Teste](reports/plot_rmse_treino_teste.png)  
-![MAPE Treino/Teste](reports/plot_mape_treino_teste.png)  
-![R² Treino/Teste](reports/plot_r2_treino_teste.png)  
-![Métricas Globais](reports/plot_metricas_globais.png)  
-
+ 
 ---
 
 ## 🧭 Dashboard Interativo (Dash/Plotly)
