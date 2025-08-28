@@ -33,3 +33,61 @@ Para recriar o ambiente do projeto, siga os passos abaixo:
    python3.11 -m venv .venv
    source .venv/bin/activate   # Mac/Linux
    .venv\Scripts\activate      # Windows
+
+# 📊 Análise Exploratória (EDA) — Dataset Limpo
+
+## 1. Estatísticas descritivas da variável alvo (`Vendas`)
+- N.º registos: **497**  
+- Média: **27 352**  
+- Mediana: **27 352**  
+- Desvio-padrão: **13 098**  
+- Mínimo: **5 003**  
+- Máximo: **53 053**  
+
+👉 Distribuição relativamente simétrica, centrada na média ≈ 27 mil.
+
+---
+
+## 2. Histograma de Vendas
+- Mostra concentração em torno da média/mediana.  
+- Poucos registos nos extremos → outliers já foram removidos.
+
+---
+
+## 3. Evolução das Vendas Mensais
+- Gráfico linear mostra flutuação regular ao longo dos meses.  
+- Linha de tendência (média móvel 3M) evidencia estabilidade com pequenas oscilações.  
+
+---
+
+## 4. Top Clientes
+- **Intermarket Angola**, **Padaria Nova Era** e **Hipermercado Maxi** concentram o maior volume de vendas.  
+- Os 5 maiores clientes confirmam a regra **80/20** (poucos clientes geram a maioria da receita).
+
+---
+
+## 5. Produtos mais rentáveis
+- **Creme Pasteleiro**, **Chantili Instantâneo** e **Geleia Neutra** são os produtos mais rentáveis.  
+- Demonstra que a rentabilidade não é uniforme entre produtos.
+
+---
+
+## 6. Correlações (heatmap)
+- **Vendas ↔ Margem_Valor**: 0.82 → correlação **muito forte**.  
+- **Vendas ↔ Margem_%**: –0.03 → irrelevante.  
+- **Ano/Mês ↔ Vendas**: fracos isoladamente, mas capturam sazonalidade.
+
+---
+
+## 7. Matriz de Confusão (exploratória)
+- Clientes classificados em **“Alto Volume” vs “Baixo Volume”** com base na mediana.  
+- Usando apenas **Margem_Valor** como preditor → taxa de acerto ≈ **82%**.  
+- Confirma a importância da margem como driver de vendas.
+
+---
+
+## ✅ Conclusões da EDA
+- O dataset limpo está consistente, sem omissos, duplicados ou outliers extremos.  
+- **Margem_Valor** é a variável mais relevante para previsão de vendas.  
+- Forte **concentração em clientes e produtos** (regra 80/20).  
+- Vendas apresentam **sazonalidade leve**, mas com estabilidade global.
