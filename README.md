@@ -137,3 +137,13 @@ python src/eda_raw.py
 ### 4. Reflexão crítica
 - Avaliar treino e teste permite verificar overfitting.
 - Como os resultados foram próximos, concluímos que o modelo generaliza bem.
+
+## 📊 Comparação de Modelos — Gráficos
+
+**Treino vs Teste**
+![RMSE Treino/Teste](reports/plot_rmse_treino_teste.png)
+![MAPE Treino/Teste](reports/plot_mape_treino_teste.png)
+![R² Treino/Teste](reports/plot_r2_treino_teste.png)
+
+**Global (100% do dataset)**
+![Métricas Globais](reports/plot_metricas_globais.png)
