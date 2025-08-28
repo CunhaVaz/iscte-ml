@@ -147,3 +147,22 @@ python src/eda_raw.py
 
 **Global (100% do dataset)**
 ![Métricas Globais](reports/plot_metricas_globais.png)
+
+## 🧭 Dashboard Interativo (Dash/Plotly)
+
+O repositório inclui um **dashboard interativo** para explorar os resultados:
+
+- **Vendas mensais** (linha) + **média móvel 3M** (tendência)
+- **Top 5 clientes** por Vendas (barras)
+- **Top 5 produtos** mais rentáveis por `Margem_Valor` (barras)
+- **Importância das variáveis** (Random Forest) a partir do `feature_importance.xlsx`
+- **Métricas dos modelos** (RMSE, MAPE, R²) a partir do `model_results.xlsx`
+
+**Como correr:**
+```bash
+# ativar venv
+source .venv/bin/activate
+# lançar o dashboard
+python src/app_dash.py
+# abrir no browser
+http://127.0.0.1:8050/
