@@ -34,6 +34,18 @@ Para recriar o ambiente do projeto, siga os passos abaixo:
    source .venv/bin/activate   # Mac/Linux
    .venv\Scripts\activate      # Windows
 
+## 📊 Análise Exploratória dos Dados Originais (EDA Raw)
+
+Foi criado o script `src/eda_raw.py` para diagnóstico dos dados **antes da limpeza**.  
+Este script gera automaticamente:
+
+- 📑 **Excel (`eda_outputs.xlsx`)** → estatísticas descritivas e anomalias identificadas  
+- 📝 **Resumo em TXT (`eda_summary.txt`)** → estatísticas e descrição dos problemas encontrados  
+- 🌐 **Relatório HTML (Sweetviz)** → visualização interativa das distribuições, correlações e anomalias  
+
+⚠️ Esta etapa é fundamental para justificar a limpeza e preparação dos dados utilizada na fase seguinte.
+
+
 # 📊 Análise Exploratória (EDA) — Dataset Limpo
 
 ## 1. Estatísticas descritivas da variável alvo (`Vendas`)
@@ -91,3 +103,37 @@ Para recriar o ambiente do projeto, siga os passos abaixo:
 - **Margem_Valor** é a variável mais relevante para previsão de vendas.  
 - Forte **concentração em clientes e produtos** (regra 80/20).  
 - Vendas apresentam **sazonalidade leve**, mas com estabilidade global.
+
+## 🔎 Análise Exploratória de Dados (EDA)
+
+### 1. EDA dos dados originais (`eda_raw.py`)
+Este script faz o **diagnóstico inicial** dos dados *antes da limpeza*, permitindo identificar:
+- Valores omissos
+- Duplicados
+- Outliers (Z-score > 3)
+- Estatísticas descritivas
+- Tops (clientes/produtos)
+
+**Como executar:**
+```bash
+python src/eda_raw.py
+
+## 📊 Justificação da divisão 80/20 e interpretação das métricas
+
+### 1. Porque fizemos a divisão 80/20
+- Objetivo: avaliar a capacidade de generalização dos modelos.
+- Usámos 80% dos dados para treino e 20% para teste.
+- O teste permite validar se o modelo prevê corretamente dados nunca vistos.
+
+### 2. Porque calculámos várias métricas (RMSE, MAPE e R²)
+- RMSE → erro médio em unidades de vendas (quanto menor, melhor).
+- MAPE → erro percentual (interpretação mais intuitiva).
+- R² → variância explicada (quanto mais perto de 1, melhor).
+
+### 3. Interpretação dos resultados
+- Regressão Linear → erros mais altos, R² mais baixo.
+- Random Forest → erros mais baixos, R² mais próximo de 1 → **melhor modelo**.
+
+### 4. Reflexão crítica
+- Avaliar treino e teste permite verificar overfitting.
+- Como os resultados foram próximos, concluímos que o modelo generaliza bem.
