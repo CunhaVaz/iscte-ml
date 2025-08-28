@@ -11,6 +11,26 @@ Aplicar Machine Learning a um dataset sintético (≤500 linhas × 10 colunas) p
 
 ---
 
+## 📂 Dataset Sintético
+
+O dataset utilizado neste projeto foi **criado de forma sintética**, com base em informação recolhida no contexto da empresa, respeitando o limite de **500 linhas × 10 colunas** definido no enunciado【ACR4Dmf…pdf】.
+
+### Estrutura dos dados
+- **Cliente** → nomes fictícios, incluindo anomalias (ex.: erros ortográficos “Mercado Frescco”, “Kéro”, “Shopritee”) para testar limpeza.  
+- **Produto** → categorias representativas de panificação/pastelaria.  
+- **Canal** → venda a grosso, retalho e exportação (foi removido na limpeza final).  
+- **Ano/Mês** → período temporal (permitindo análise de tendência e sazonalidade).  
+- **Vendas** → valores numéricos com omissos propositados (4 células) e outliers (>10× média, 2 linhas).  
+- **Margem_%** → percentagem de margem, com valores inválidos fora de 0–100%.  
+- **Margem_Valor** → margem em valor absoluto.  
+
+### Como foi usado
+- Inicialmente, os dados **contêm anomalias propositadas** (omissos, duplicados, outliers, erros ortográficos).  
+- O script `clean_data.py` trata esses problemas (corrige nomes, remove duplicados, elimina outliers e omissos).  
+- A versão limpa é guardada em `data/processed/dataset_biagio_clean.xlsx`, que é usada para treino dos modelos.
+
+---
+
 ## 🛠️ Pipeline
 
 - `src/clean_data.py` → limpeza de dados (omissos, duplicados, outliers, ortografia).  
