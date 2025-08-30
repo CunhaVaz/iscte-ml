@@ -28,8 +28,46 @@ Este repositório contém a resolução do **Trabalho A – Quantitativo** da di
 9. `src/infografico_final_com_imagens.py` → cria `reports/infografico_trabalhoA.pptx`, o slide extra (10+1) com resumo visual do trabalho.  
 
 ---
+iscte-ml/
+│
+├── data/
+│   ├── raw/                  # datasets originais
+│   └── processed/            # datasets limpos
+│
+├── reports/                  # outputs (Excel, Sweetviz, métricas, gráficos, infográficos)
+│
+├── src/                      # scripts Python
+│   ├── gerador_dataset.py
+│   ├── eda_raw.py
+│   ├── clean_data.py
+│   ├── eda_clean.py
+│   ├── model_train.py
+│   ├── feature_importance.py
+│   ├── plot_metrics.py
+│   ├── create_infografico_with_images_fixed.py
+│   └── app_dash.py
+│
+├── README.md                 
+├── requirements.txt          
+└── requirements_full.txt     
 
 ## 📊 Principais Resultados
+
+### Regressão Linear
+- **Treino**: RMSE = 6 915 | MAPE = 26,0% | R² = 0,74  
+- **Teste**: RMSE = 7 924 | MAPE = 23,3% | R² = 0,53  
+- **Global**: RMSE = 7 129 | MAPE = 25,5% | R² = 0,70  
+
+### Random Forest
+- **Treino**: RMSE = 855 | MAPE = 2,4% | R² = 0,996  
+- **Teste**: RMSE = 3 051 | MAPE = 7,4% | R² = 0,93  
+- **Global**: RMSE = 1 568 | MAPE = 3,4% | R² = 0,99  
+
+### Interpretação
+- O **Random Forest** apresentou consistentemente melhor desempenho, com **R² elevado** em todas as fases (≈0,93 no teste e ≈0,99 no global), **erro baixo** (RMSE) e **precisão elevada** (MAPE < 8%).  
+- A **Regressão Linear** obteve resultados razoáveis, mas com desempenho inferior, sobretudo no conjunto de teste (R² = 0,53).  
+- A análise global confirma que o **Random Forest generaliza melhor**, sendo o modelo mais adequado para previsão das vendas.  
+
 
 - **Modelo vencedor**: Random Forest  
   - RMSE (teste) ≈ 3 000  
@@ -46,16 +84,29 @@ Este repositório contém a resolução do **Trabalho A – Quantitativo** da di
 
 ## 📈 Visualizações
 
-Exemplos de gráficos estáticos (PNG exportados para o README):
+O pipeline gera automaticamente:
 
-![RMSE Treino/Teste](reports/plot_rmse_treino_teste.png)  
-![MAPE Treino/Teste](reports/plot_mape_treino_teste.png)  
-![R² Treino/Teste](reports/plot_r2_treino_teste.png)  
-![Métricas Globais](reports/plot_metricas_globais.png)  
+- **EDA (Raw e Clean)** com relatórios Sweetviz e Excel.  
+- **Gráficos de métricas** (RMSE, MAPE, R²) para treino, teste e global.  
+- **Ranking de variáveis** (Random Forest).  
+- **Infográfico final em PPTX** com síntese dos resultados.
 
-> Para gráficos interativos, correr o **Dashboard**:
+---
+
+## 🌐 Dashboard Interativo (Dash/Plotly)
+
+Inclui um dashboard para explorar:
+
+- Vendas mensais + média móvel  
+- Top 5 clientes por vendas  
+- Top 5 produtos mais rentáveis  
+- Importância das variáveis (RF)  
+- Métricas dos modelos (tabela)  
+
+### ▶️ Para executar:
+
 ```bash
-python src/app_dash.py
+python -m src.app_dash
 
 Abrir 👉 http://127.0.0.1:8050
 
