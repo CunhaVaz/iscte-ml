@@ -106,6 +106,14 @@ app.layout = html.Div([
     ], style={"width": "100%", "display": "inline-block"})
 ])
 
+app = dash.Dash(__name__, title="Dashboard Previsão de Vendas - Biagio")
+server = app.server   # <-- ADICIONAR ESTA LINHA
+
+import os
+
 if __name__ == "__main__":
-    # executa como "app", e também funciona via "python -m src.app_dash"
-    app.run_server(debug=True, host="127.0.0.1", port=8050)
+    app.run_server(
+        debug=False,
+        host="0.0.0.0",
+        port=int(os.getenv("PORT", 8050))
+    )
